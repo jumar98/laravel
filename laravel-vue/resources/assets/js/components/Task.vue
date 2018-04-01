@@ -4,6 +4,9 @@
           <div class="col-md-12">
               <div class="panel panel-default">
                   <div class="panel-heading">
+                      <button @click="initAddTask()" class="btn btn-prymary btn-xs pull-right">
+                          + Add New Task
+                      </button>
                       My Tasks
                   </div>
                   <div class="panel-body">
@@ -13,6 +16,8 @@
           </div>
       </div>
   </div>
+
+
 </template>
 
 <script>
