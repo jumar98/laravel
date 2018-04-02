@@ -14,7 +14,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-     $tasks = Task::orderBy('id','DESC')->paginate(3);
+     $tasks = Task::all();
      return view('task.index', compact('tasks'));
     }
 
@@ -50,7 +50,7 @@ class TaskController extends Controller
     public function show($id)
     {
         $tasks = Task::find($id);
-        return view('Task.show', compact('tasks'));
+        return view('task.show', compact('tasks'));
     }
 
     /**
@@ -62,7 +62,7 @@ class TaskController extends Controller
     public function edit($id)
     {
         $task = Task::find($id);
-        return view('Task.edit', compact('task'));
+        return view('task.edit', compact('task'));
     }
 
     /**
@@ -89,6 +89,6 @@ class TaskController extends Controller
     public function destroy($id)
     {
         Task::find($id)->delete();
-        return redirect()->route('Task.index')->with('success','Registro eliminado satisfactoriamente');
+        return redirect()->route('task.index')->with('successE','Registro eliminado satisfactoriamente');
     }
 }
