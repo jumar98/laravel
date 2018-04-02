@@ -3,6 +3,20 @@
 <div class="row">
   <section class="content">
     <div class="col-md-8 col-md-offset-2">
+      <center>
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
+        @if (session('successE'))
+        <div class="alert alert-danger">
+            {{ session('successE') }}
+        </div>
+        @endif
+      </center>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="pull-left"><h3>Lista Tareas</h3></div>
