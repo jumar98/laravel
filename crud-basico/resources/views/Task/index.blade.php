@@ -25,12 +25,12 @@
                 <td>{{$task->id}}</td>
                 <td>{{$task->name}}</td>
                 <td>{{$task->description}}</td>
-                <td><a class="btn btn-primary btn-xs" href="{{action('TaskController@edit', $task->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a class="btn btn-primary btn-xs" title="Editar" href="{{action('TaskController@edit', $task->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
                 <td>
                   <form action="{{action('TaskController@destroy', $task->id)}}" method="post">
                    {{csrf_field()}}
                    <input name="_method" type="hidden" value="DELETE">
-                   <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+                   <button class="btn btn-danger btn-xs" title="Eliminar" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
                  </td>
                </tr>
                @endforeach 
