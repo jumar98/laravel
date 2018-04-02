@@ -4,10 +4,10 @@
           <div class="col-md-12">
               <div class="panel panel-default">
                   <div class="panel-heading">
+                      Algo mas
                       <button @click="initAddTask()" class="btn btn-prymary btn-xs pull-right">
                           + Add New Task
-                      </button>
-                      My Tasks
+                      </button>                    
                   </div>
                   <div class="panel-body">
 
