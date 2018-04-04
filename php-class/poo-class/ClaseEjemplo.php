@@ -5,7 +5,7 @@ class Html{
 
     public function head(){
         echo "<html><head>";
-        //Contenido del head
+        echo "<title>Clase de Poo</title>";
         echo "</head>";
     }
 
