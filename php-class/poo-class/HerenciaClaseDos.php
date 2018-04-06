@@ -14,10 +14,11 @@ class Hijo extends Padre{
         echo "Dentro del hijo";
     }
 
-    public function otroMetodo(){
-        
+    public function otroMetodo(){ // Llama metodo del padre
+        parent::metodoPadre();
     }
 }
 
 $obj = new Hijo();
-$obj->metodoPadre();
+//$obj->metodoPadre();
+$obj->otroMetodo();
