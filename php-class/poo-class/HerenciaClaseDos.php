@@ -19,6 +19,27 @@ class Hijo extends Padre{
     }
 }
 
-$obj = new Hijo();
+//$obj = new Hijo();
 //$obj->metodoPadre();
-$obj->otroMetodo();
+//$obj->otroMetodo();
+
+class Estatica {
+
+    public static function metodoEstatico(){
+        echo "<h1>Clase estatica</h1>";
+    }
+}
+
+//Estatica::metodoEstatico();
+
+class Calculadora{
+
+    public function suma($valor1=0, $valor2=0){
+        $result = $valor1 + $valor2;
+        return $result;
+    }
+}
+
+$operacion = new Calculadora();
+
+echo "<h1>".$operacion->suma(5)."</h1>";
