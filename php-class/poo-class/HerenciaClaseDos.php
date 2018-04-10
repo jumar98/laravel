@@ -34,12 +34,26 @@ class Estatica {
 
 class Calculadora{
 
-    public function suma($valor1=0, $valor2=0){
-        $result = $valor1 + $valor2;
+    public function arreglo(){
+        $arreglo = array("Valor 1","Valor 2","Valor 3","Valor 4");
+        //echo $arreglo[0];
+        $arreglo2 = array(1=>"posicion 1",2=>"posicion 2","tres"=>"posicion 3");
+        //echo $arreglo2['tres'];
+        $arreglo3[0]="posicion 0";
+        $arreglo3[4]="posicion 4";
+        echo $arreglo3[4];
+    }
+
+    public function suma($datos){
+        $result = $datos[0] + $datos[1];
         return $result;
     }
 }
 
 $operacion = new Calculadora();
+$arreglo = array(3,5);
+echo $operacion->suma($arreglo);
 
-echo "<h1>".$operacion->suma(5)."</h1>";
+//echo "<h1>".$operacion->suma(5)."</h1>";
+
+?>
