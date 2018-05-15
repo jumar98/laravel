@@ -8,29 +8,46 @@ include "conexion.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css" media="all">
+    <script>
+        function ajax(){
+            var req = new XMLHttpRequest();
+            req.onreadystatechange = function(){
+                if(req.readyState == 4 && req.status == 200){
+                    document.getElementById('chat').innerHTML = req.responseText;
+                }
+            }
+            req.open('GET','chat.php',true);
+            req.send();
+        }
+    </script>
     <title>Chat con ajax</title>
 </head>
-<body>
+<body onload="ajax();">
     <div id="container">
         <div id="chat_box">
-        <?php
-            $query = "select * from chat order by id desc";
-            $run = $objCon->conexion->query($query);
-
-            while($row = $run->fetch_array()) :
-        ?>
-            <div id="chat_data">
-                <span style="color:green"><?php echo $row['name']; ?>:</span>
-                <span style="color:red"><?php echo $row['message']; ?></span>
-                <span style="color:blue; float:right"><?php echo $row['date']; ?></span>
+            <div id="chat">
             </div>
-            <?php endwhile; ?>
         </div>
-        <form action="post" action="recibir.php">
+        <form method="POST" action="index.php">
             <input type="text" placeholder="Nombre" name="name">
-            <textarea name="enter_message" placeholder="Enter message"></textarea>
-            <input type="submit" value="Enviar">
+            <textarea name="msg" placeholder="Enter message"></textarea>
+            <input type="submit" name="submit" value="Enviar">
         </form>
+        <?php 
+        if(isset($_POST['submit'])){
+        $name = $_POST['name'];
+        $msg = $_POST['msg'];
+
+
+        $query = "insert into chat (name,message) values ('$name','$msg')";
+        $run = $objCon->conexion->query($query);
+        if($run){
+            echo "<embed loop='false' src='chat.wav' hidden='true' autoplay='true' />";   
+        }
+        }else{
+            echo "Llene los campos";
+        }
+        ?>
     </div>
 
 </body>
