@@ -13,5 +13,6 @@
 
 
 
+Route::get('/', 'BeginController@home');
 
 Route::resource('/task','TaskController');
